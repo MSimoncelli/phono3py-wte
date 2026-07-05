@@ -8,10 +8,16 @@ from phonopy.phonon.degeneracy import degenerate_sets
 
 from phono3py.conductivity.grid_point_data import VelocityResult
 from phono3py.conductivity.utils import VOIGT_INDEX_PAIRS, get_kappa_star_operations
-from phono3py.phonon.grid import (
-    get_grid_points_by_rotations,
-    get_qpoints_from_bz_grid_points,
-)
+try:
+    from phonopy.phonon.grid import (
+        get_grid_points_by_rotations,
+        get_qpoints_from_bz_grid_points,
+    )
+except ImportError:
+    from phono3py.phonon.grid import (
+        get_grid_points_by_rotations,
+        get_qpoints_from_bz_grid_points,
+    )
 from phono3py.phonon3.interaction import Interaction
 
 from wte.velocity_operator import VelocityOperator
